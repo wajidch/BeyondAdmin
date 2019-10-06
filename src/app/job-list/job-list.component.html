@@ -1,0 +1,94 @@
+<div class="container">
+  <h2>Contextual Classes</h2>
+  <p>Contextual classes can be used to color table rows or table cells. The classes that can be used are: .active, .success, .info, .warning, and .danger.</p>
+  <button data-toggle="modal" data-target="#exampleModal" class="btn btn-primary">Add Job</button>
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+          <th>Title</th>
+        <th>Designation</th>
+        <th>Expereince</th>
+        <th>Salary</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let list of getJobRes'>
+          <td>{{list.title}}</td>
+        <td>{{list.designation}}</td>
+        <td>{{list.expereince}}</td>
+        <td>{{list.salary}}</td>
+      </tr>      
+     
+    </tbody>
+  </table>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Add Job</h5>
+    
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      
+      
+  <div class="form-group">
+  <label for="exampleFormControlInput1">Title</label>
+  <input type="text" [(ngModel)]='AddJobModel.title' name='title'   class="form-control" id="" placeholder="Enter title of job">
+ 
+  </div>
+  <div class="form-group">
+  <label for="exampleFormControlInput1">Designation</label>
+  <input type="text" name='designation' [(ngModel)]='AddJobModel.designation'  class="form-control" id="" placeholder="Enter designation of job">
+
+
+  </div>
+  <div class="form-group">
+  <label for="exampleFormControlInput1">Expereince</label>
+  <input type="text" name='expereince' [(ngModel)]='AddJobModel.expereince' class="form-control" id="" placeholder="Enter expereince of job">
+
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Salary</label>
+    <input type="text" name='salary' [(ngModel)]='AddJobModel.salary' class="form-control" id=""
+     placeholder="Enter Salary of job">
+  
+    </div>
+  <div class="form-group">
+  <label for="exampleFormControlTextarea1">Description</label>
+  <textarea class="form-control" name='description' [(ngModel)]='AddJobModel.description'  id="exampleFormControlTextarea1" rows="3"></textarea>
+
+</div>
+<div class="form-group">
+  <label for="exampleFormControlTextarea1">Skill</label>
+  <textarea class="form-control" name='skill' [(ngModel)]='AddJobModel.skill'  id="exampleFormControlTextarea1" rows="3"></textarea>
+
+</div>
+<div class="form-group">
+  <label for="exampleFormControlTextarea1">Technical Description</label>
+  <textarea class="form-control" name='technical_description' [(ngModel)]='AddJobModel.technical_description'  id="exampleFormControlTextarea1" rows="3"></textarea>
+
+</div>
+<div class="form-group">
+  <label for="exampleFormControlTextarea1">Job Ads</label>
+<input type="file" class="form-control" (change)='uploadJobAds($event)'>
+</div>
+        
+    </div>
+    <label style="color: green;font-weight:bolder" *ngIf='create'>Ads for job created</label>
+    <div class="modal-footer">
+      <button type="button" 
+       (click)='Addjob()'  class="btn btn-primary">
+       Add job</button>
+    </div>
+  </div>
+  </div>
+  </div>

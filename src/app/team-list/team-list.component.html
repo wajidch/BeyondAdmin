@@ -1,0 +1,87 @@
+<div class="container">
+  <h2>Contextual Classes</h2>
+  <p>Contextual classes can be used to color table rows or table cells. The classes that can be used are: .active, .success, .info, .warning, and .danger.</p>
+  <button data-toggle="modal" data-target="#exampleModal" class="btn btn-primary">Add Team</button>
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+          <th>Name</th>
+        <th>Designation</th>
+        <th>Phone</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let list of getTeamRes'>
+          <td>{{list.name}}</td>
+        <td>{{list.designation}}</td>
+        <td>{{list.phone}}</td>
+        <td>{{list.email}}</td>
+      </tr>      
+     
+    </tbody>
+  </table>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Add Team</h5>
+    
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      
+      
+  <div class="form-group">
+  <label for="exampleFormControlInput1">Name</label>
+  <input type="text" [(ngModel)]='AddTeamModel.name' name='name'   class="form-control" id="" placeholder="Enter Name">
+ 
+  </div>
+  <div class="form-group">
+  <label for="exampleFormControlInput1">Designation</label>
+  <input type="text" name='designation' [(ngModel)]='AddTeamModel.designation'  class="form-control" id=""
+   placeholder="Enter designation">
+
+
+  </div>
+  <div class="form-group">
+  <label for="exampleFormControlInput1">Phone</label>
+  <input type="text" name='phone' [(ngModel)]='AddTeamModel.phone' class="form-control" id=""
+   placeholder="Enter Phone Number">
+
+  </div>
+
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Email</label>
+      <input type="text" name='email' [(ngModel)]='AddTeamModel.email' class="form-control" id=""
+       placeholder="Enter Email">
+    
+      </div>
+<div class="form-group">
+  <label for="exampleFormControlTextarea1">Description</label>
+  <textarea class="form-control" name='description' [(ngModel)]='AddTeamModel.description'  id="exampleFormControlTextarea1" rows="3"></textarea>
+
+</div>
+<div class="form-group">
+  <label for="exampleFormControlTextarea1">Profile Image</label>
+<input type="file" class="form-control" (change)='uploadTeamPic($event)'>
+</div>
+        
+    </div>
+    <label style="color: green;font-weight:bolder" *ngIf='create'>Team created</label>
+    <div class="modal-footer">
+      <button type="button" 
+       (click)='AddTeam()'  class="btn btn-primary">
+       Add Team</button>
+    </div>
+  </div>
+  </div>
+  </div>
