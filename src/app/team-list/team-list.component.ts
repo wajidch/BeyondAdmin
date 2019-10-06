@@ -34,7 +34,7 @@ export class TeamListComponent implements OnInit {
       }
     });
   }
-  uploadJobAds(event: any){
+  uploadTeamPic(event: any){
     if (event && event.target.files.length > 0) {
       const headers = new HttpHeaders();
       headers.append('Content-Type', 'multipart/*');
